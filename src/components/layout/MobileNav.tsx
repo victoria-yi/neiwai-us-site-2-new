@@ -79,7 +79,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
                     Home
                   </Link>
                 </motion.li>
-                {allLinks.map((link, index) => {
+                {navLinks.left.map((link, index) => {
                   const menuKey = megaMenuKeys[link.label];
                   const hasSubmenu = !!menuKey;
                   const menuData = menuKey ? megaMenuData[menuKey] : null;
@@ -152,6 +152,38 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
                           {link.label}
                         </Link>
                       )}
+                    </motion.li>
+                  );
+                })}
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.12 + navLinks.left.length * 0.05, duration: 0.4 }}
+                >
+                  <Link
+                    href="/sale"
+                    onClick={onClose}
+                    className="block py-4 font-display text-[28px] font-light tracking-wide hover:opacity-80 transition-opacity duration-300"
+                    style={{ color: '#C25835' }}
+                  >
+                    Sale
+                  </Link>
+                </motion.li>
+                {navLinks.right.map((link, index) => {
+                  return (
+                    <motion.li
+                      key={link.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.15 + (navLinks.left.length + 1 + index) * 0.05, duration: 0.4 }}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={onClose}
+                        className="block py-4 font-display text-[28px] font-light text-cream tracking-wide hover:text-blush transition-colors duration-300"
+                      >
+                        {link.label}
+                      </Link>
                     </motion.li>
                   );
                 })}

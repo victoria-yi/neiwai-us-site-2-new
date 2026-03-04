@@ -1,13 +1,23 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import CollectionHero from '@/components/collection/CollectionHero';
 import FilterBar from '@/components/collection/FilterBar';
 import ProductGrid from '@/components/product/ProductGrid';
 import EditorialBreak from '@/components/collection/EditorialBreak';
 import { brasProducts } from '@/lib/products';
 
-const filters = ['All', 'Barely Zero', 'Natural Fiber', 'Strapless', 'For Fuller Busts'];
+const filters = ['All', 'Barely Zero', 'Natural Fiber', 'Strapless', 'For Fuller Busts', 'Deep V & Push-Up'];
+
+// URL param → filter label
+const FILTER_PARAM_MAP: Record<string, string> = {
+  'fuller-busts': 'For Fuller Busts',
+  'strapless': 'Strapless',
+  'natural-fiber': 'Natural Fiber',
+  'deep-v': 'Deep V & Push-Up',
+  'barely-zero': 'Barely Zero',
+};
 
 // Curated display order — mirrors the pull-down mega menu sequence
 const CURATED_ORDER = [
@@ -33,11 +43,24 @@ function applyFilter(filter: string) {
   if (filter === 'For Fuller Busts') return brasProducts.filter(
     (p) => p.slug.includes('curvy') || p.slug.includes('curve')
   );
+  if (filter === 'Deep V & Push-Up') return brasProducts.filter(
+    (p) => p.line === 'swan' || p.line === 'featherlight'
+  );
   return sortCurated(brasProducts);
 }
 
-export default function BrasPage() {
-  const [activeFilter, setActiveFilter] = useState('All');
+function BrasPageContent() {
+  const searchParams = useSearchParams();
+  const filterParam = searchParams.get('filter');
+  const initialFilter = (filterParam && FILTER_PARAM_MAP[filterParam]) || 'All';
+
+  const [activeFilter, setActiveFilter] = useState(initialFilter);
+
+  useEffect(() => {
+    if (filterParam && FILTER_PARAM_MAP[filterParam]) {
+      setActiveFilter(FILTER_PARAM_MAP[filterParam]);
+    }
+  }, [filterParam]);
   const [activeSort, setActiveSort] = useState('Curated');
 
   const filteredProducts = useMemo(() => {
@@ -94,5 +117,17 @@ export default function BrasPage() {
         </div>
       </div>
     </>
+  );
+}
+
+export default function BrasPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-[60vh] flex items-center justify-center">
+        <div className="font-body text-[14px] text-taupe">Loading...</div>
+      </div>
+    }>
+      <BrasPageContent />
+    </Suspense>
   );
 }

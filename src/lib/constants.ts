@@ -45,6 +45,9 @@ export const megaMenuData = {
           { label: 'Scallop Clasp Bra', href: '/bras/barely-zero-scallop-clasp-bra' },
           { label: 'Camisole', href: '/bras/barely-zero-camisole' },
           { label: 'Breeze Bra', href: '/bras/barely-zero-breeze-bra' },
+          { label: 'Curvy Clasp Bra', href: '/bras/barely-zero-curvy-clasp-bra' },
+          { label: 'Curvy Bra', href: '/bras/barely-zero-curvy-bra' },
+          { label: 'Curve Extra Support Bra', href: '/bras/barely-zero-curve-extra-support-bra' },
         ],
       },
       {

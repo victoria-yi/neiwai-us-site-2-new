@@ -8,13 +8,15 @@ import SizeSelector from '@/components/product/SizeSelector';
 import ColorSwatches from '@/components/product/ColorSwatches';
 import AddToBag from '@/components/product/AddToBag';
 import ProductAccordion from '@/components/product/ProductAccordion';
-import ProductCard from '@/components/product/ProductCard';
+import YouMayAlsoLikeCard from '@/components/product/YouMayAlsoLikeCard';
 import VariantSelector from '@/components/product/VariantSelector';
 import TechnologyStory from '@/components/product/TechnologyStory';
 import VariantComparison from '@/components/product/VariantComparison';
+import FloatingCartBar from '@/components/product/FloatingCartBar';
+import CompleteTheSetPDP from '@/components/product/CompleteTheSetPDP';
 import FadeIn from '@/components/ui/FadeIn';
 import Overline from '@/components/ui/Overline';
-import { getProductBySlug, getRelatedProducts } from '@/lib/products';
+import { getProductBySlug, getYouMayAlsoLikeBras, getMatchingSetBriefs } from '@/lib/products';
 import type { Product } from '@/lib/products';
 import { formatPrice } from '@/lib/utils';
 
@@ -96,7 +98,8 @@ export default function BrasProductPage() {
     );
   }
 
-  const relatedProducts = getRelatedProducts(product, 3);
+  const youMayAlsoLike = getYouMayAlsoLikeBras(product, 5);
+  const matchingSetBriefs = getMatchingSetBriefs(product, 2);
   const galleryProduct = getGalleryProduct(product, selectedVariantId);
   const activeVariant = hasVariants && selectedVariantId
     ? product.variants!.find((v) => v.id === selectedVariantId)
@@ -158,12 +161,34 @@ export default function BrasProductPage() {
                 {formatPrice(product.price)}
               </p>
 
-              <p className="font-body text-[15px] text-taupe mt-4 leading-relaxed">
-                {product.description}
-              </p>
+              <div className="mt-5 border border-sand bg-warm-white">
+                <div className="px-5 pt-4 pb-5">
+                  <p className="font-display text-[11px] font-light tracking-[0.16em] uppercase text-taupe/70 mb-3">
+                    Why You&apos;ll Love It
+                  </p>
+                  <p className="font-body text-[16px] text-ink leading-snug">
+                    {product.lifestyleLine}
+                  </p>
+                </div>
+                {product.technologyFeatures && product.technologyFeatures.length > 0 && (
+                  <div className="border-t border-sand px-5 py-4 bg-sand/10">
+                    <p className="font-display text-[11px] font-light tracking-[0.16em] uppercase text-taupe/70 mb-3">
+                      Highlights
+                    </p>
+                    <ul className="flex flex-col gap-2">
+                      {product.technologyFeatures.slice(0, 3).map((f) => (
+                        <li key={f.number} className="flex items-center gap-2.5">
+                          <span className="w-1 h-1 rounded-full bg-accent/50 flex-shrink-0" />
+                          <span className="font-body text-[14px] text-taupe">{f.headline}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
 
-              <p className="font-body text-[13px] text-accent mt-3 italic">
-                {product.lifestyleLine}
+              <p className="font-body text-[14px] text-taupe mt-4 leading-relaxed">
+                {product.description}
               </p>
             </FadeIn>
 
@@ -230,42 +255,15 @@ export default function BrasProductPage() {
             )}
 
             <FadeIn delay={0.2}>
-              <div className="mt-7">
+              <div className="mt-7" id="pdp-form-sentinel">
                 <AddToBag disabled={!selectedSize} />
               </div>
             </FadeIn>
 
             {/* Trust signals */}
-            <div className="mt-6 flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-accent flex-shrink-0">
-                  <path d="M1 12h15m3 0h2a2 2 0 012 2v3a2 2 0 01-2 2h-1" />
-                  <path d="M16 12V7a1 1 0 011-1h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 01.293.707V12" />
-                  <circle cx="7.5" cy="18.5" r="1.5" /><circle cx="18.5" cy="18.5" r="1.5" />
-                </svg>
-                <span className="font-body text-[12px] text-taupe">Complimentary U.S. shipping on orders above $99</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-accent flex-shrink-0">
-                  <path d="M9 14l-4-4 4-4" /><path d="M5 10h11a4 4 0 010 8h-1" />
-                </svg>
-                <span className="font-body text-[12px] text-taupe">30-day returns — unworn, tags attached</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-accent flex-shrink-0">
-                  <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" />
-                </svg>
-                <span className="font-body text-[12px] text-taupe">Exchanges available for all sizes and colors</span>
-              </div>
-            </div>
-
-            {/* Always-visible materials summary */}
-            <div className="mt-6 pt-5 border-t border-sand">
-              <p className="font-body text-[12px] text-taupe leading-relaxed">
-                <span className="tracking-[0.1em] uppercase mr-2">Materials</span>
-                {product.details.composition}
-              </p>
-            </div>
+            <p className="mt-6 font-body text-[14px] text-taupe">
+              Free shipping over $99&nbsp;&nbsp;·&nbsp;&nbsp;Easy returns within 30 days
+            </p>
 
             <FadeIn delay={0.25}>
               <div className="mt-4">
@@ -273,30 +271,45 @@ export default function BrasProductPage() {
               </div>
             </FadeIn>
 
-            {product.line === 'barely-zero' && (
-              <FadeIn delay={0.3}>
-                <div className="mt-8 p-6 bg-blush/20">
-                  <h3 className="font-body text-[11px] font-medium tracking-[0.12em] uppercase text-taupe mb-3">
-                    The Barely Zero Difference
-                  </h3>
-                  <p className="font-body text-[13px] text-taupe leading-relaxed">
-                    Our proprietary Barely Zero fabric is engineered with a four-way stretch
-                    that adapts to your body&apos;s natural movement. No wires. No clasps. No
-                    compromise. Just invisible support that lets you forget you&apos;re wearing anything at all.
-                  </p>
-                </div>
-              </FadeIn>
-            )}
           </div>
         </div>
       </div>
 
-      {/* Technology Story */}
+      {/* Floating Cart Bar */}
+      <FloatingCartBar
+        product={galleryProduct}
+        selectedColor={selectedColor}
+        selectedSize={selectedSize}
+      />
+
+      {/* Technology Story — "The details that disappear" */}
       {product.technologyFeatures && product.technologyFeatures.length > 0 && (
         <TechnologyStory
           features={product.technologyFeatures}
           productName={product.name}
         />
+      )}
+
+      {/* Complete the set — same as Vercel, directly below The details that disappear */}
+      {matchingSetBriefs.length > 0 && (
+        <CompleteTheSetPDP briefs={matchingSetBriefs} />
+      )}
+
+      {/* You may also like — same title size as Complete the set */}
+      {youMayAlsoLike.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 lg:px-20 py-16 lg:pb-32 lg:py-24 border-t border-sand">
+          <FadeIn>
+            <h2 className="font-display text-[26px] lg:text-[34px] font-light text-ink leading-tight tracking-[0.02em]">
+              You may also like
+            </h2>
+          </FadeIn>
+
+          <div className="mt-12 lg:mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 lg:gap-6">
+            {youMayAlsoLike.map((p) => (
+              <YouMayAlsoLikeCard key={p.id} product={p} />
+            ))}
+          </div>
+        </section>
       )}
 
       {/* Variant Comparison */}
@@ -306,21 +319,6 @@ export default function BrasProductPage() {
           selectedVariantId={selectedVariantId}
           onSelect={handleVariantSelect}
         />
-      )}
-
-      {/* Complete the Look */}
-      {relatedProducts.length > 0 && (
-        <section className="max-w-[1440px] mx-auto px-6 lg:px-20 py-16 lg:pb-32 lg:py-24 border-t border-sand">
-          <FadeIn>
-            <Overline>Complete the Look</Overline>
-          </FadeIn>
-
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
-            {relatedProducts.map((p, i) => (
-              <ProductCard key={p.id} product={p} index={i} />
-            ))}
-          </div>
-        </section>
       )}
     </div>
   );

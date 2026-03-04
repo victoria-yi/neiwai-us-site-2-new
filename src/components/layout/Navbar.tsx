@@ -12,9 +12,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<'bras' | 'briefs' | 'leggings' | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [announcementVisible, setAnnouncementVisible] = useState(true);
   const pathname = usePathname();
-  const isHome = pathname === '/';
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -25,17 +23,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Track announcement bar dismissal
-  useEffect(() => {
-    const dismissed = sessionStorage.getItem('announcement-dismissed');
-    if (dismissed) setAnnouncementVisible(false);
-
-    const handleDismiss = () => setAnnouncementVisible(false);
-    window.addEventListener('announcement-dismissed', handleDismiss);
-    return () => window.removeEventListener('announcement-dismissed', handleDismiss);
-  }, []);
-
-  const navTop = announcementVisible ? 'top-[32px]' : 'top-0';
+  const navTop = 'top-0';
 
   // Close mobile nav on route change
   useEffect(() => {
@@ -77,11 +65,13 @@ export default function Navbar() {
     setHoveredMenu(null);
   };
 
-  const navBg = scrolled || !isHome || hoveredMenu
+  const isHome = pathname === '/';
+
+  const navBg = scrolled || hoveredMenu
     ? 'bg-cream/95 backdrop-blur-md border-b border-sand/50'
     : 'bg-transparent';
 
-  const textColor = scrolled || !isHome || hoveredMenu ? 'text-ink' : 'text-cream';
+  const textColor = scrolled || hoveredMenu || !isHome ? 'text-ink' : 'text-cream';
 
   return (
     <>
@@ -121,6 +111,18 @@ export default function Navbar() {
                 </Link>
               </div>
             ))}
+            <Link
+              href="/sale"
+              onMouseEnter={() => setHoveredMenu(null)}
+              className={`font-body text-[14px] font-normal tracking-wide transition-opacity duration-300 hover:opacity-80 ${
+                pathname === '/sale'
+                  ? 'relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[1px] after:bg-[#C25835]'
+                  : ''
+              }`}
+              style={{ color: '#C25835' }}
+            >
+              Sale
+            </Link>
           </div>
 
           {/* Mobile Hamburger */}
