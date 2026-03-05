@@ -14,14 +14,9 @@ export default function ProductGallery({ product, selectedColor }: ProductGaller
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Thumbnails: always product.images — same 6 images, no duplicates
+  // Thumbnails and main image both use product.images — clicking a thumbnail shows that image
   const thumbnails = product.images;
-
-  // Main image: selected color's image at activeIndex when color has colorImages
-  const colorImages = selectedColor && product.colorImages?.[selectedColor];
-  const mainImageSrc = colorImages
-    ? (colorImages[activeIndex] ?? colorImages[Math.min(activeIndex, colorImages.length - 1)])
-    : (product.images[activeIndex] ?? product.images[0]);
+  const mainImageSrc = product.images[activeIndex] ?? product.images[0];
 
   // Scroll active thumbnail into view
   useEffect(() => {
@@ -44,7 +39,7 @@ export default function ProductGallery({ product, selectedColor }: ProductGaller
       <div className="relative aspect-[3/4] overflow-hidden bg-sand">
         <AnimatePresence mode="wait">
           <motion.div
-            key={`${selectedColor ?? 'default'}-${activeIndex}`}
+            key={activeIndex}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

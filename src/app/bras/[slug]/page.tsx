@@ -216,6 +216,9 @@ export default function BrasProductPage() {
                 <div className="flex items-center justify-between mb-3">
                   <span className="font-body text-[13px] text-ink">
                     {selectedColor || ''}
+                    {selectedColor && activeColors.find((c) => c.name === selectedColor)?.soldOut && (
+                      <span className="ml-2 font-body text-[12px] text-taupe">Sold out</span>
+                    )}
                   </span>
                 </div>
                 <ColorSwatches
