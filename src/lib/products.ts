@@ -42,6 +42,8 @@ export interface Product {
   isNew?: boolean;
   images: string[];
   hoverImage?: string;
+  /** White-background card image for "You may also like" etc. */
+  cardImage?: string;
   colorImages?: Record<string, string[]>;
   description: string;
   details: {
@@ -90,6 +92,7 @@ export const brasProducts: Product[] = [
       '/images/2025-08-28NEIWAI16953.jpg',
     ],
     hoverImage: '/images/2025-08-28NEIWAI167441.webp',
+    cardImage: '/images/strap-bra-card-white.png',
     colorImages: {
       'Eggwhite': [
         '/images/2025-08-28NEIWAI167441.webp',
@@ -192,23 +195,19 @@ export const brasProducts: Product[] = [
     ],
     sizes: ['One Size'],
     images: [
-      // Black
       '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/2025-08-28NEIWAI17255.webp',
       '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/2025-08-28NEIWAI17270.webp',
-      // Treacly Almond
       '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/2025-08-28NEIWAI16364_2087098d-adca-42e7-89da-ef4c3e9f3af5.webp',
       '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/0216NEIWAI32312.jpg',
       '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/0216NEIWAI32371.webp',
       '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/2025-08-28NEIWAI18218.webp',
       '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/0216NEIWAI32620_1.webp',
-      // Icy Purple
       '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/0216NEIWAI32633.jpg',
-      // Eggwhite (white bra + black leggings model last)
       '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/2025-08-28NEIWAI16998.webp',
-      // Off-white bra + briefs (full body)
       '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/2025-08-28NEIWAI16835.png',
     ],
     hoverImage: '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/2025-08-28NEIWAI17255.webp',
+    cardImage: '/images/anchored-cup-signature-bra-card.png',
     colorImages: {
       'Black': [
         '/images/Barely%20Zero%20Anchored%20Cup%20Signature%20Bra/2025-08-28NEIWAI17255.webp',
@@ -351,18 +350,15 @@ export const brasProducts: Product[] = [
     ],
     sizes: ['XS-S', 'M-L'],
     images: [
-      // Black
       '/images/Barely%20Zero%20Scallop%20Bra/2025-08-28NEIWAI158792.webp',
-      // Two women (black + nude)
       '/images/Barely%20Zero%20Scallop%20Bra/2025-08-28NEIWAI162012_eccd6926-58ef-4a36-9ddd-f76beec553d9.webp',
       '/images/Barely%20Zero%20Scallop%20Bra/Barely_Zero_Fixed_Cup_Wavy_3x4_1.webp',
-      // Warm Bread
       '/images/Barely%20Zero%20Scallop%20Bra/20211217%20NEIWAI9121%20%E6%8B%B7%E8%B4%9D.jpg',
       '/images/Barely%20Zero%20Scallop%20Bra/2025-08-28NEIWAI178131.webp',
-      // Treacly Almond / Light nude
       '/images/Barely%20Zero%20Scallop%20Bra/2025-08-28NEIWAI17747.webp',
     ],
     hoverImage: '/images/Barely%20Zero%20Scallop%20Bra/2025-08-28NEIWAI158792.webp',
+    cardImage: 'https://neiwai.life/cdn/shop/files/2_f6871b0c-dec7-474c-a6b8-34fb5efb1ee6.png?v=1770860761&width=1646',
     description: 'A delicate scalloped V-neckline and fixed molded cups — the Scallop Bra brings structure to the Barely Zero collection without adding weight. Pull-on with no clasps or underwire. The cups stay fixed, the neckline stays crisp, and the silhouette remains invisible under clothing.',
     details: {
       composition: 'Barely Zero CloudFit nylon blend',
@@ -432,6 +428,7 @@ export const brasProducts: Product[] = [
       '/images/Barely%20Zero%20Scallop%20Clasp%20Bra/2025-08-28NEIWAI16012.jpg',
     ],
     hoverImage: '/images/Barely%20Zero%20Scallop%20Clasp%20Bra/2025-08-28NEIWAI180512.webp',
+    cardImage: 'https://neiwai.life/cdn/shop/files/NO251WU1111_2f86129a-4b5b-49db-a972-7485e857e977.jpg?v=1762149070&width=1646',
     description: 'The Scallop Clasp Bra adds a wave-inspired back clasp to the Fixed Cup Wavy silhouette — an upgrade that introduces fine-tuned fit without changing what the style does well. Bisous Cups™ for breathable, natural shaping. Flo Support™ for stay-put structure. The scallop neckline remains.',
     details: {
       composition: 'Barely Zero CloudFit nylon blend',
@@ -487,7 +484,9 @@ export const brasProducts: Product[] = [
       '/images/Barely%20Zero%20Camisole/5.26_1705.webp',
       '/images/Barely%20Zero%20Camisole/5.26_1710.webp',
     ],
-    hoverImage: '/images/Barely%20Zero%20Camisole/5.26_0803%20layer.webp', description: 'Barely Zero integral cups built into a camisole body — full support without a separate bra underneath. The hem falls cleanly as a layer or on its own. The construction is the same as the rest of the Barely Zero collection: seamless, adaptive, designed to disappear.',
+    hoverImage: '/images/Barely%20Zero%20Camisole/5.26_0803%20layer.webp',
+    cardImage: 'https://neiwai.life/cdn/shop/files/NW242WF3204.jpg?v=1721417912&width=1646',
+    description: 'Barely Zero integral cups built into a camisole body — full support without a separate bra underneath. The hem falls cleanly as a layer or on its own. The construction is the same as the rest of the Barely Zero collection: seamless, adaptive, designed to disappear.',
     details: {
       composition: 'Barely Zero CloudFit nylon blend',
       care: 'Hand wash cold or machine wash gentle. Lay flat to dry.',
@@ -1181,26 +1180,21 @@ export const briefsProducts: Product[] = [
     line: 'barely-zero',
     subcategory: 'single',
     colors: [
-      { name: 'Eggwhite', hex: '#F5F0E8' },
-      { name: 'Black', hex: '#1A1714' },
-      { name: 'Treacly Almond', hex: '#D4B5A0' },
-      { name: 'Peach Pure', hex: '#E8C8B8' },
+      { name: 'Treacly Almond', hex: '#E2DCD7' },
+      { name: 'Peach Pure', hex: '#F2E0CB' },
     ],
     sizes: ['One Size'],
     isNew: true,
     images: [
-      'https://neiwai.life/cdn/shop/files/20231129-NEIWAI_00783.jpg?v=1753306860&width=800',
-      'https://neiwai.life/cdn/shop/files/20231124-NEIWAI_00263_63699f2c-48fc-4820-9e6a-185195902b4e.jpg?v=1753306860&width=800',
-      'https://neiwai.life/cdn/shop/files/0216NEIWAI33794.jpg?v=1753306860&width=800',
-      'https://neiwai.life/cdn/shop/files/20231124-NEIWAI_00274.jpg?v=1753306860&width=800',
-      'https://neiwai.life/cdn/shop/files/0216NEIWAI33800.jpg?v=1753306860&width=800',
-      'https://neiwai.life/cdn/shop/files/20231129-NEIWAI_00708.jpg?v=1753306860&width=800',
-      'https://neiwai.life/cdn/shop/files/41e134ba8238c54a105cef101f669962.jpg?v=1753914594&width=800',
-      'https://neiwai.life/cdn/shop/files/431f12c51621606092e5a4c5bddf2182.jpg?v=1753914594&width=800',
-      'https://neiwai.life/cdn/shop/files/FlatLay_CroppingTemplate_Yellow_d28ce2a0-ef47-4fe0-8bc8-2ff6d8fd0495.jpg?v=1753914594&width=800',
-      'https://neiwai.life/cdn/shop/files/FlatLay_CroppingTemplate_Yellow_1_283cef06-5f95-4b31-8d91-30c08c34da0a.jpg?v=1753914594&width=800'
+      '/images/Barelyzero%20superlight%20brief%28%E6%9C%89%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/0216NEIWAI33794.webp',
+      '/images/Barelyzero%20superlight%20brief%28%E6%9C%89%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/0216NEIWAI33800.webp',
+      '/images/Barelyzero%20superlight%20brief%28%E6%9C%89%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/20231124-NEIWAI_00263_63699f2c-48fc-4820-9e6a-185195902b4e.webp',
+      '/images/Barelyzero%20superlight%20brief%28%E6%9C%89%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/20231124-NEIWAI_00274.webp',
+      '/images/Barelyzero%20superlight%20brief%28%E6%9C%89%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/20231129-NEIWAI_00783%20no-pinch.webp',
+      '/images/Barelyzero%20superlight%20brief%28%E6%9C%89%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/FlatLay_CroppingTemplate_Yellow_1_283cef06-5f95-4b31-8d91-30c08c34da0a.webp',
+      '/images/Barelyzero%20superlight%20brief%28%E6%9C%89%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/FlatLay_CroppingTemplate_Yellow_d28ce2a0-ef47-4fe0-8bc8-2ff6d8fd0495.webp',
     ],
-    hoverImage: 'https://neiwai.life/cdn/shop/files/20231129-NEIWAI_00783.jpg?v=1753306860&width=800', description: 'A silicone grip along the rim keeps the Superlight Brief in position through activity — no riding, no adjustment. The back panel is seamless and non-restrictive. Built for movement without the bulk: lightweight, breathable, and invisible under anything.',
+    hoverImage: '/images/Barelyzero%20superlight%20brief%28%E6%9C%89%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/0216NEIWAI33794.webp', description: 'A silicone grip along the rim keeps the Superlight Brief in position through activity — no riding, no adjustment. The back panel is seamless and non-restrictive. Built for movement without the bulk: lightweight, breathable, and invisible under anything.',
     details: {
       composition: 'Barely Zero adaptive nylon blend',
       care: 'Machine wash cold in lingerie bag. Lay flat to dry.',
@@ -1213,21 +1207,24 @@ export const briefsProducts: Product[] = [
         number: '01',
         headline: 'Silicone Waist Grip',
         description: 'A silicone grip along the waist rim holds position through workouts and everyday movement — no sliding, no bunching.',
-        image: 'https://neiwai.life/cdn/shop/files/20231129-NEIWAI_00783.jpg?v=1753306860&width=800',
+        image: '/images/Barelyzero%20superlight%20brief%28%E6%9C%89%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/20231124-NEIWAI_00274-silicone-grip.png',
+        imageObjectPosition: 'center 65%',
         icon: 'anchor',
       },
       {
         number: '02',
         headline: 'No-Pinch Back Panel',
         description: 'Seamless, non-restrictive construction at the back — no digging, no compression lines, no irritation.',
-        image: 'https://neiwai.life/cdn/shop/files/20231124-NEIWAI_00263_63699f2c-48fc-4820-9e6a-185195902b4e.jpg?v=1753306860&width=800',
+        image: '/images/Barelyzero%20superlight%20brief%28%E6%9C%89%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/20231129-NEIWAI_00783%20no-pinch.webp',
+        imageObjectPosition: 'center 75%',
         icon: 'invisible',
       },
       {
         number: '03',
         headline: 'Lightweight & Invisible',
         description: 'Breathable fabric designed for active and all-day wear. Seamless exterior with no visible lines under fitted clothing.',
-        image: 'https://neiwai.life/cdn/shop/files/0216NEIWAI33794.jpg?v=1753306860&width=800',
+        image: '/images/Barelyzero%20superlight%20brief%28%E6%9C%89%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/20260305-160235%20invisible.jpeg',
+        imageObjectPosition: 'center 75%',
         icon: 'breathe',
       },
     ],
@@ -1241,39 +1238,28 @@ export const briefsProducts: Product[] = [
     line: 'barely-zero',
     subcategory: 'single',
     colors: [
-      { name: 'Fluffy Peach', hex: '#E8C8B0' },
+      { name: 'Fluffy Peach', hex: '#EDE8E3' },
       { name: 'Cinnamon Taste', hex: '#C4A088' },
       { name: 'Champagne Wheat', hex: '#D8C8A8' },
-      { name: 'Her Brownie', hex: '#8B6848' },
-      { name: 'Warm Bread', hex: '#C8B098' },
-      { name: 'Treacly Almond', hex: '#D4B5A0' },
-      { name: 'Black Truffle', hex: '#2C2824' },
-      { name: 'Caramel', hex: '#B89070' },
-      { name: 'Deep Mahogany', hex: '#5C3028' },
-      { name: 'Taro Blush', hex: '#C8A8B0' },
     ],
     sizes: ['One Size'],
     images: [
-      'https://neiwai.life/cdn/shop/files/20210111NEIWAI333371.jpg?v=1736536548&width=800',
-      'https://neiwai.life/cdn/shop/files/20210111NEIWAI33185_1.jpg?v=1736536548&width=800',
-      'https://neiwai.life/cdn/shop/files/20210111NEIWAI33207_1.jpg?v=1736536548&width=800',
-      'https://neiwai.life/cdn/shop/files/20210111NEIWAI33353_1.jpg?v=1736536548&width=800',
-      'https://neiwai.life/cdn/shop/files/20210111NEIWAI36943_1.jpg?v=1736536548&width=800',
-      'https://neiwai.life/cdn/shop/files/20210111NEIWAI36935_1.jpg?v=1736536548&width=800',
-      'https://neiwai.life/cdn/shop/files/20210111NEIWAI33199_1.jpg?v=1736536548&width=800',
-      'https://neiwai.life/cdn/shop/files/20210422_Evy_2021BarelyZeroPackage8_1.jpg?v=1736539657&width=800',
-      'https://neiwai.life/cdn/shop/products/N211WU2122_32b048b5-68d9-4bbf-a86f-9177e910e1a7.jpg?v=1738200139&width=800',
-      'https://neiwai.life/cdn/shop/products/N211WU2122_2d1a962c-f14f-4ad2-94c4-86f16135857b.jpg?v=1738200139&width=800',
-      'https://neiwai.life/cdn/shop/products/N211WU2122_7891967c-9e09-4be8-9e50-0b87bd4839b7.jpg?v=1738200139&width=800',
-      'https://neiwai.life/cdn/shop/products/N211WU2122_84fa7d00-af4a-488c-ad4d-13db1703c83f.jpg?v=1738200139&width=800',
-      'https://neiwai.life/cdn/shop/products/N211WU2122_1_f93aedcc-3815-48f9-9415-9bf3e6ff69d3.jpg?v=1738200139&width=800',
-      'https://neiwai.life/cdn/shop/products/N211WU2122_b33218d7-b8a9-4425-9ef0-d23ca91b59a1.jpg?v=1738200139&width=800',
-      'https://neiwai.life/cdn/shop/products/NW221WU1349_6d1d324c-b887-484d-9ae6-4df6362ea255.jpg?v=1736539657&width=800',
-      'https://neiwai.life/cdn/shop/products/NW221WU1349_08c9bb31-952d-43ed-84fc-207c41e7b326.jpg?v=1736539657&width=800',
-      'https://neiwai.life/cdn/shop/products/NW221WU1349_e5f68419-c637-4efe-bc1c-49bcdfddc6db.jpg?v=1736539657&width=800',
-      'https://neiwai.life/cdn/shop/products/NW221WU1349_013a9b7c-a9eb-4c6c-849b-cef1d4c312b3.jpg?v=1736539657&width=800'
+      '/images/Barelyzero%20mid%20waist%20brief/20211220NEIWAI2835_1.webp',
+      '/images/Barelyzero%20mid%20waist%20brief/20260305-160629%20twosize.jpeg',
+      '/images/Barelyzero%20mid%20waist%20brief/20260305-160823%20freecut.jpeg',
+      '/images/Barelyzero%20mid%20waist%20brief/NW221WU1180_NW221WU1320-1_1.webp',
+      '/images/Barelyzero%20mid%20waist%20brief/NW221WU1180_NW221WU1320-2_1.webp',
+      '/images/Barelyzero%20mid%20waist%20brief/20211220NEIWAI2757_1.webp',
+      '/images/Barelyzero%20mid%20waist%20brief/20211220NEIWAI2770_1.webp',
+      '/images/Barelyzero%20mid%20waist%20brief/NW221WU1320-01_1.webp',
+      '/images/Barelyzero%20mid%20waist%20brief/NW221WU11103_NW221WU1320_1.webp',
+      '/images/Barelyzero%20mid%20waist%20brief/NW221WU1320_8a4ecdf9-0c7e-4140-81dc-d2368e5f30ef.webp',
+      '/images/Barelyzero%20mid%20waist%20brief/NW221WU1320_1f2ce942-53e3-4492-a70d-5c0e144c6efd.webp',
+      '/images/Barelyzero%20mid%20waist%20brief/NW221WU1320_5506c1f4-cd26-408c-9408-69bbf2ee1e04.jpg',
+      '/images/Barelyzero%20mid%20waist%20brief/NW221WU1320_100f79aa-d93b-499b-9b5d-8cf1273a134d.webp',
+      '/images/Barelyzero%20mid%20waist%20brief/NW221WU1320_281f37f5-dbe1-4bea-81d1-62aed3ca7f16.webp',
     ],
-    hoverImage: 'https://neiwai.life/cdn/shop/files/20210111NEIWAI333371.jpg?v=1736536548&width=800', description: 'The Low Waist Brief adapts to the body from the first wear — no break-in period, no tight edges. CloudFit nylon for all-day breathability and moisture management. 100% cotton gusset lining. A clean low-rise profile that works under low-waist denim, wide-leg pants, or anything else.',
+    hoverImage: '/images/Barelyzero%20mid%20waist%20brief/20211220NEIWAI2835_1.webp', description: 'The Low Waist Brief adapts to the body from the first wear — no break-in period, no tight edges. CloudFit nylon for all-day breathability and moisture management. 100% cotton gusset lining. A clean low-rise profile that works under low-waist denim, wide-leg pants, or anything else.',
     details: {
       composition: '68% CloudFit nylon blend, 32% Spandex | Gusset: 100% Cotton',
       care: 'Machine wash cold in lingerie bag. Lay flat to dry.',
@@ -1293,14 +1279,14 @@ export const briefsProducts: Product[] = [
         number: '02',
         headline: 'CloudFit Nylon',
         description: 'Ultra-elastic, breathable, moisture-wicking, odor-reducing — the same adaptive fabric as the Barely Zero bra collection.',
-        image: 'https://neiwai.life/cdn/shop/files/20210111NEIWAI33185_1.jpg?v=1736536548&width=800',
+        image: '/images/Barely%20Zore%20N202WU1116%20.jpg',
         icon: 'stretch',
       },
       {
         number: '03',
         headline: 'Cotton-Lined Comfort',
         description: '100% cotton gusset lining with moderate coverage — no digging at the legs or waist. Adapts from the first wear.',
-        image: 'https://neiwai.life/cdn/shop/files/20210111NEIWAI33207_1.jpg?v=1736536548&width=800',
+        image: '/images/Barelyzero%20low%20waist%20brief%28%E6%97%A0%E8%B4%B4%E8%83%B6%E7%89%88%E6%9C%AC%EF%BC%89/N211WU2122%20%E8%A3%86%E9%83%A8%20cotton.jpg',
         icon: 'comfort',
       },
     ],
@@ -1314,13 +1300,14 @@ export const briefsProducts: Product[] = [
     line: 'barely-zero',
     subcategory: 'single',
     colors: [
-      { name: 'Treacly Almond', hex: '#D4B5A0' },
-      { name: 'Black', hex: '#1A1714' },
-      { name: 'Eggwhite', hex: '#F5F0E8' },
-      { name: 'Warm Bread', hex: '#C8B098' },
+      { name: 'Fluffy Peach', hex: '#EDE8E3' },
       { name: 'Cinnamon Taste', hex: '#C4A088' },
+      { name: 'Caramel', hex: '#BC8F6E' },
+      { name: 'Taro Blush', hex: '#D4C8CC' },
+      { name: 'Deep Mahogany', hex: '#5C3028' },
+      { name: 'Brown', hex: '#9B5A3A' },
     ],
-    sizes: ['XS', 'S', 'M', 'L'],
+    sizes: ['XS-M', 'L-XL'],
     images: [
       'https://neiwai.life/cdn/shop/files/20211220NEIWAI2835_1.jpg?v=1736546521&width=800',
       'https://neiwai.life/cdn/shop/files/NW221WU11103_NW221WU1320_1.jpg?v=1736546521&width=800',
@@ -1347,7 +1334,7 @@ export const briefsProducts: Product[] = [
     details: {
       composition: '67% CloudFit nylon blend, 33% Spandex | Lining: 100% Cotton',
       care: 'Machine wash cold in lingerie bag. Lay flat to dry.',
-      fit: 'Available in XS–L. Mid-rise with full coverage. Seamless exterior.',
+      fit: 'Available in XS–M and L–XL. Mid-rise with full coverage. Seamless exterior.',
     },
     sensoryLine: 'Classic cut. Barely there.',
     lifestyleLine: 'More sizes, same disappearing act.',
@@ -1361,16 +1348,16 @@ export const briefsProducts: Product[] = [
       },
       {
         number: '02',
-        headline: 'Bonded Leg Openings',
+        headline: 'Free Cut Leg Openings',
         description: 'No elastic imprint at the thigh — clean, smooth edges that leave no marks after extended wear.',
-        image: 'https://neiwai.life/cdn/shop/files/NW221WU11103_NW221WU1320_1.jpg?v=1736546521&width=800',
+        image: '/images/Barelyzero%20mid%20waist%20brief/20260305-160823%20freecut.jpeg',
         icon: 'invisible',
       },
       {
         number: '03',
         headline: 'Two-Size Range',
         description: 'Available in two sizes for a wider range of body types. 100% cotton gusset lining for breathable comfort.',
-        image: 'https://neiwai.life/cdn/shop/files/20211220NEIWAI2757_1.jpg?v=1736546521&width=800',
+        image: '/images/Barelyzero%20mid%20waist%20brief/20260305-160629%20twosize.jpeg',
         icon: 'stretch',
       },
     ],
@@ -1498,11 +1485,14 @@ export const leggingsProducts: Product[] = [
     ],
     sizes: ['One Size'],
     images: [
-      'https://neiwai.life/cdn/shop/products/NW222WF4108_6c0cf425-aeaa-470b-b8e9-e11eb1cda5e3.jpg?v=1681238454&width=800',
-      'https://neiwai.life/cdn/shop/products/20220628NEIWAI56458.jpg?v=1681238454&width=800',
-      'https://neiwai.life/cdn/shop/products/20220628NEIWAI56395.jpg?v=1681238454&width=800',
+      '/images/Barelyzero%20lycra%20leggings/%E9%AB%98%E8%85%B0%E6%89%93%E5%BA%95%E9%95%BF%E8%A3%A4%EF%BC%88%E8%8E%B1%E5%8D%A1%E7%89%88%EF%BC%89NW222WF4108%20%E9%A6%96%E5%9B%BE.jpg',
+      '/images/Barelyzero%20lycra%20leggings/20220628NEIWAI56454.webp',
+      '/images/Barelyzero%20lycra%20leggings/20220628NEIWAI56451%20thicker.webp',
+      '/images/Barelyzero%20lycra%20leggings/20220628NEIWAI56458.webp',
+      '/images/Barelyzero%20lycra%20leggings/20220628NEIWAI56461.webp',
+      '/images/Barelyzero%20lycra%20leggings/NW222WF4108_95141f7b-1143-4adb-a5d7-41fa405cb900.webp',
     ],
-    hoverImage: 'https://neiwai.life/cdn/shop/products/20220628NEIWAI56458.jpg?v=1681238454&width=800',
+    hoverImage: '/images/Barelyzero%20lycra%20leggings/20220628NEIWAI56454.webp',
     description: 'The Lycra Leggings are a heavier-weight interpretation of the Barely Zero construction — the same adaptive CloudFit nylon, denser for cooler weather and all-day outdoor wear. Double-layered waistband, high-waist silhouette, no side seams. Fits waist 24.5"–34.5", hips 31.5"–39.5".',
     details: {
       composition: '82% CloudFit nylon, 18% Spandex',
@@ -1516,21 +1506,21 @@ export const leggingsProducts: Product[] = [
         number: '01',
         headline: 'Thicker Lycra Construction',
         description: 'Warmer than standard Barely Zero leggings — a heavier-weight fabric for cooler months and transition seasons.',
-        image: 'https://neiwai.life/cdn/shop/products/NW222WF4108_6c0cf425-aeaa-470b-b8e9-e11eb1cda5e3.jpg?v=1681238454&width=800',
+        image: '/images/Barelyzero%20lycra%20leggings/20220628NEIWAI56451%20thicker.webp',
         icon: 'durability',
       },
       {
         number: '02',
         headline: 'Adaptive CloudFit Nylon',
         description: 'Conforms to the body without compression. Double-layered high-waist panel that lies flat, smooth, with no rolling.',
-        image: 'https://neiwai.life/cdn/shop/products/20220628NEIWAI56458.jpg?v=1681238454&width=800',
+        image: '/images/Barelyzero%20lycra%20leggings/%E9%9D%A2%E6%96%99%E5%9B%BE.jpg',
         icon: 'stretch',
       },
       {
         number: '03',
         headline: 'Clean Silhouette',
         description: 'No side stitching, ankle-length. Fits waist 24.5"–34.5", hips 31.5"–39.5" — a seamless line from waist to ankle.',
-        image: 'https://neiwai.life/cdn/shop/products/20220628NEIWAI56395.jpg?v=1681238454&width=800',
+        image: '/images/Barelyzero%20lycra%20leggings/20220628NEIWAI56461.webp',
         icon: 'invisible',
       },
     ],
@@ -1544,17 +1534,17 @@ export const leggingsProducts: Product[] = [
     line: 'barely-zero',
     subcategory: 'leggings',
     colors: [
-      { name: 'Deep Mahogany', hex: '#5C3028' },
-      { name: 'Black Truffle', hex: '#2C2824' },
-      { name: 'Sage Mist', hex: '#C0C8B8' },
+      { name: 'Dried Date', hex: '#522120' },
     ],
     sizes: ['One Size'],
     images: [
-      'https://neiwai.life/cdn/shop/files/20211217NEIWAI9705_1.jpg?v=1729629132&width=800',
-      'https://neiwai.life/cdn/shop/products/20211217NEIWAI8421.jpg?v=1706569721&width=800',
-      'https://neiwai.life/cdn/shop/products/1222_46833.jpg?v=1706565268&width=800',
+      '/images/Barelyzero%20flow%20leggings/20211217NEIWAI9705_1.webp',
+      '/images/Barelyzero%20flow%20leggings/75AC5C03-572A-4138-8489-991DA5926137_1_201_a.webp',
+      '/images/Barelyzero%20flow%20leggings/20211217NEIWAI8421.webp',
+      '/images/Barelyzero%20flow%20leggings/A2BEF133-AFB3-4A13-8FCB-66D60968BD49_1_201_a.webp',
+      '/images/Barelyzero%20flow%20leggings/NW221WF4102.webp',
     ],
-    hoverImage: 'https://neiwai.life/cdn/shop/products/20211217NEIWAI8421.jpg?v=1706569721&width=800',
+    hoverImage: '/images/Barelyzero%20flow%20leggings/20211217NEIWAI9705_1.webp',
     description: 'The Flow Leggings extend the adaptive construction of the Barely Zero underwear range into a full-length outerwear legging — the same second-skin CloudFit nylon, now designed to wear beyond the home. Ankle-length, double-layered waistband, no side seams. Fits waist 24.5"–34.5", hips 31.5"–39.5".',
     details: {
       composition: '86% CloudFit nylon, 14% Spandex',
@@ -1568,22 +1558,24 @@ export const leggingsProducts: Product[] = [
         number: '01',
         headline: 'CloudFit Nylon',
         description: 'Ultra-elastic, breathable construction designed to conform without compression — the Barely Zero fabric at full length.',
-        image: 'https://neiwai.life/cdn/shop/files/20211217NEIWAI9705_1.jpg?v=1729629132&width=800',
+        image: '/images/Barelyzero%20flow%20leggings/%E9%9D%A2%E6%96%99%E5%9B%BE.jpg',
         icon: 'stretch',
       },
       {
         number: '02',
         headline: 'Double-Layer Waistband',
         description: 'High-waist panel holds flat with no rolling at the waistband — stays in position through movement and wear.',
-        image: 'https://neiwai.life/cdn/shop/products/20211217NEIWAI8421.jpg?v=1706569721&width=800',
+        image: '/images/Barelyzero%20flow%20leggings/2.jpg',
         icon: 'anchor',
+        imageObjectPosition: 'center 10%',
       },
       {
         number: '03',
         headline: 'Seamless Construction',
         description: 'No side stitching for a clean silhouette. Ankle-length, fits waist 24.5"–34.5", hips 31.5"–39.5".',
-        image: 'https://neiwai.life/cdn/shop/products/1222_46833.jpg?v=1706565268&width=800',
+        image: '/images/Barelyzero%20flow%20leggings/20211217NEIWAI9705_1.webp',
         icon: 'invisible',
+        imageObjectPosition: 'center 25%',
       },
     ],
   },
@@ -1596,17 +1588,25 @@ export const leggingsProducts: Product[] = [
     line: 'barely-zero',
     subcategory: 'shorts',
     colors: [
+      { name: 'Dried Date', hex: '#522120' },
+      { name: 'Red Bean', hex: '#8B6969' },
       { name: 'Black Truffle', hex: '#2C2824' },
-      { name: 'Deep Mahogany', hex: '#5C3028' },
-      { name: 'Treacly Almond', hex: '#D4B5A0' },
     ],
     sizes: ['One Size'],
     images: [
-      'https://neiwai.life/cdn/shop/products/1222_46833.jpg?v=1706565268&width=800',
-      'https://neiwai.life/cdn/shop/files/20211217NEIWAI9705_1.jpg?v=1729629132&width=800',
-      'https://neiwai.life/cdn/shop/products/20220628NEIWAI56395.jpg?v=1681238454&width=800',
+      '/images/Barelyzero%20flow%20shorts/NEIWAIBZShoot_8840.webp',
+      '/images/Barelyzero%20flow%20shorts/20211217NEIWAI8281.webp',
+      '/images/Barelyzero%20flow%20shorts/20211217NEIWAI8273.webp',
+      '/images/Barelyzero%20flow%20shorts/BarelyZeroFixedCupClaspBraCaramelNW221WU11103-652_BarelyZeroBikerShortsDriedDateNW221WF4101-4713.webp',
+      '/images/Barelyzero%20flow%20shorts/3DSmileCutoutBraCinderNW222WU1107-906_BarelyZeroBikerShortsRedBeanNW221WF4101-1311_2561d786-f442-4d01-8776-a6baa6381cd1.webp',
+      '/images/Barelyzero%20flow%20shorts/20211217NEIWAI9278_P.webp',
+      '/images/Barelyzero%20flow%20shorts/NEI016_NW221WF4101_Barely-Zero-Biker-Short_Red-Bean_OM_Detail_8.webp',
+      '/images/Barelyzero%20flow%20shorts/20211217NEIWAI8116.webp',
+      '/images/Barelyzero%20flow%20shorts/NW221WF4101.webp',
+      '/images/Barelyzero%20flow%20shorts/NW221WF4101_f7e2f5fd-36c9-4182-a5c2-3c7524a087c7.webp',
+      '/images/Barelyzero%20flow%20shorts/NW221WF4101_f379da3b-7714-4145-a50b-cb3986a35651.webp',
     ],
-    hoverImage: 'https://neiwai.life/cdn/shop/files/20211217NEIWAI9705_1.jpg?v=1729629132&width=800',
+    hoverImage: '/images/Barelyzero%20flow%20shorts/20211217NEIWAI8281.webp',
     description: 'The same CloudFit nylon construction as the Flow Leggings in a bike-short length. High-waist double-layered panel, no side seams, anti-compression by design. Wears from morning through evening, active or at rest. Fits waist 24.5"–34.5", hips 31"–40".',
     details: {
       composition: '86% CloudFit nylon, 14% Spandex',
@@ -1620,21 +1620,22 @@ export const leggingsProducts: Product[] = [
         number: '01',
         headline: 'CloudFit Nylon',
         description: 'Same adaptive fabric as the Flow Leggings — consistent feel across the range with breathable, moisture-wicking performance.',
-        image: 'https://neiwai.life/cdn/shop/products/1222_46833.jpg?v=1706565268&width=800',
+        image: '/images/Barelyzero%20flow%20shorts/%E9%9D%A2%E6%96%99%E5%9B%BE.jpg',
         icon: 'stretch',
       },
       {
         number: '02',
         headline: 'Double-Layer Waistband',
         description: 'High-waist panel that stays in position through movement. Anti-compression construction — no squeezing or binding.',
-        image: 'https://neiwai.life/cdn/shop/files/20211217NEIWAI9705_1.jpg?v=1729629132&width=800',
+        image: '/images/Barelyzero%20flow%20shorts/20211217NEIWAI9273_P.webp',
         icon: 'anchor',
+        imageObjectPosition: 'center 10%',
       },
       {
         number: '03',
         headline: 'Bike-Short Length',
         description: 'No side stitching. Fits waist 24.5"–34.5", hips 31"–40" — the shorter alternative with identical construction quality.',
-        image: 'https://neiwai.life/cdn/shop/products/20220628NEIWAI56395.jpg?v=1681238454&width=800',
+        image: '/images/Barelyzero%20flow%20shorts/20211217NEIWAI8116.webp',
         icon: 'invisible',
       },
     ],
@@ -1698,4 +1699,15 @@ export function getYouMayAlsoLikeBras(currentProduct: Product, limit: number = 5
     (p): p is Product => !!p && p.id !== currentProduct.id
   );
   return pool.slice(0, limit);
+}
+
+/** "You may also like" for briefs PDP — other briefs, same line first then rest. */
+export function getYouMayAlsoLikeBriefs(currentProduct: Product, limit: number = 5): Product[] {
+  const sameLine = allProducts.filter(
+    (p) => p.category === 'briefs' && p.id !== currentProduct.id && p.line === currentProduct.line
+  );
+  const otherBriefs = allProducts.filter(
+    (p) => p.category === 'briefs' && p.id !== currentProduct.id && p.line !== currentProduct.line
+  );
+  return [...sameLine, ...otherBriefs].slice(0, limit);
 }

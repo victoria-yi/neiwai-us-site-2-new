@@ -8,7 +8,7 @@ import SizeSelector from '@/components/product/SizeSelector';
 import ColorSwatches from '@/components/product/ColorSwatches';
 import AddToBag from '@/components/product/AddToBag';
 import ProductAccordion from '@/components/product/ProductAccordion';
-import YouMayAlsoLikeCard from '@/components/product/YouMayAlsoLikeCard';
+import YouMayAlsoLikePDP from '@/components/product/YouMayAlsoLikePDP';
 import VariantSelector from '@/components/product/VariantSelector';
 import TechnologyStory from '@/components/product/TechnologyStory';
 import VariantComparison from '@/components/product/VariantComparison';
@@ -298,22 +298,8 @@ export default function BrasProductPage() {
         <CompleteTheSetPDP briefs={matchingSetBriefs} />
       )}
 
-      {/* You may also like — same title size as Complete the set */}
-      {youMayAlsoLike.length > 0 && (
-        <section className="max-w-[1440px] mx-auto px-6 lg:px-20 py-16 lg:pb-32 lg:py-24 border-t border-sand">
-          <FadeIn>
-            <h2 className="font-display text-[26px] lg:text-[34px] font-light text-ink leading-tight tracking-[0.02em]">
-              You may also like
-            </h2>
-          </FadeIn>
-
-          <div className="mt-12 lg:mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 lg:gap-6">
-            {youMayAlsoLike.map((p) => (
-              <YouMayAlsoLikeCard key={p.id} product={p} />
-            ))}
-          </div>
-        </section>
-      )}
+      {/* You may also like — same as reference neiwai-us-site3 */}
+      <YouMayAlsoLikePDP products={youMayAlsoLike} />
 
       {/* Variant Comparison */}
       {hasVariants && product.variants && selectedVariantId && (

@@ -14,7 +14,7 @@ export default function CompleteTheSetPDP({ briefs }: CompleteTheSetPDPProps) {
   if (briefs.length === 0) return null;
 
   return (
-    <section className="bg-sand py-16 lg:py-24">
+    <section className="bg-warm-white/70 py-16 lg:py-24">
       <div className="px-6 lg:px-20 max-w-[1440px] mx-auto">
         {/* Header — centered, refined typography */}
         <FadeIn>
@@ -47,7 +47,7 @@ export default function CompleteTheSetPDP({ briefs }: CompleteTheSetPDPProps) {
                   />
                 </div>
                 <div className="pt-5 pb-2 border-b border-stone/30">
-                  <h3 className="font-display text-[18px] sm:text-[22px] lg:text-[26px] font-light text-ink leading-[1.2]">
+                  <h3 className="font-display text-[17px] sm:text-[21px] lg:text-[25px] font-light text-ink leading-[1.2]">
                     {p.name}
                   </h3>
                   <div className="flex items-center justify-between mt-3">

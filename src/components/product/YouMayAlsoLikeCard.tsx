@@ -25,7 +25,7 @@ export default function YouMayAlsoLikeCard({ product }: YouMayAlsoLikeCardProps)
     >
       <div className="relative aspect-[3/4] overflow-hidden bg-sand">
         <Image
-          src={product.images[0]}
+          src={product.cardImage ?? product.images[0]}
           alt={product.name}
           fill
           className={`object-cover object-top transition-all duration-500 ${

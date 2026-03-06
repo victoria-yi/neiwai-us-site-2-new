@@ -9,11 +9,12 @@ import ColorSwatches from '@/components/product/ColorSwatches';
 import AddToBag from '@/components/product/AddToBag';
 import ProductAccordion from '@/components/product/ProductAccordion';
 import ProductCard from '@/components/product/ProductCard';
+import YouMayAlsoLikeCard from '@/components/product/YouMayAlsoLikeCard';
 import TechnologyStory from '@/components/product/TechnologyStory';
 import FloatingCartBar from '@/components/product/FloatingCartBar';
 import FadeIn from '@/components/ui/FadeIn';
 import Overline from '@/components/ui/Overline';
-import { getProductBySlug, getRelatedProducts } from '@/lib/products';
+import { getProductBySlug, getRelatedProducts, getYouMayAlsoLikeBriefs } from '@/lib/products';
 import { formatPrice } from '@/lib/utils';
 
 const lineLabels: Record<string, string> = {
@@ -55,6 +56,7 @@ export default function BriefsProductPage() {
   }
 
   const relatedProducts = getRelatedProducts(product, 3);
+  const youMayAlsoLike = getYouMayAlsoLikeBriefs(product, 4);
   const lineLabel = lineLabels[product.line] ?? 'Briefs';
 
   const accordionItems = [
@@ -216,18 +218,42 @@ export default function BriefsProductPage() {
         />
       )}
 
-      {/* Complete the Look */}
+      {/* Complete the Look — 1/4 text left (vertically centered), 3/4 three images right */}
       {relatedProducts.length > 0 && (
-        <section className="max-w-[1440px] mx-auto px-6 lg:px-20 py-16 lg:pb-32 lg:py-24 border-t border-sand">
-          <FadeIn>
-            <Overline>Complete the Look</Overline>
+        <section className="w-full border-t border-sand py-16 lg:py-24">
+          <FadeIn className="flex flex-col lg:flex-row lg:items-center w-full">
+            <div className="px-6 lg:pl-20 lg:w-1/4 lg:min-w-0 lg:pr-8 flex flex-col justify-center">
+              <h2 className="font-display text-[22px] lg:text-[28px] font-light text-ink tracking-tight">
+                Complete the Look
+              </h2>
+              <p className="font-body text-[13px] lg:text-[14px] text-taupe mt-2 lg:mt-3 leading-relaxed">
+                We've handpicked the perfect styles to complement your look.
+              </p>
+            </div>
+            <div className="mt-8 lg:mt-0 lg:flex-[0_0_75%] lg:w-3/4 grid grid-cols-3 gap-1.5 sm:gap-2 lg:gap-2 pr-6 lg:pr-0 w-full overflow-hidden min-w-0">
+              {relatedProducts.map((p, i) => (
+                <ProductCard key={p.id} product={p} index={i} />
+              ))}
+            </div>
           </FadeIn>
+        </section>
+      )}
 
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
-            {relatedProducts.map((p, i) => (
-              <ProductCard key={p.id} product={p} index={i} />
-            ))}
-          </div>
+      {/* You may also like — align with Complete the Look: 1/4 title, 3/4 four images edge-to-edge */}
+      {youMayAlsoLike.length > 0 && (
+        <section className="w-full border-t border-sand py-16 lg:py-24">
+          <FadeIn className="flex flex-col lg:flex-row lg:items-center w-full">
+            <div className="px-6 lg:pl-20 lg:w-1/4 lg:min-w-0 lg:pr-8 flex flex-col justify-center">
+              <h2 className="font-display text-[22px] lg:text-[28px] font-light text-ink tracking-tight">
+                You may also like
+              </h2>
+            </div>
+            <div className="mt-8 lg:mt-0 lg:flex-[0_0_75%] lg:w-3/4 grid grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-2 lg:gap-2 pr-6 lg:pr-0 w-full overflow-hidden min-w-0">
+              {youMayAlsoLike.map((p) => (
+                <YouMayAlsoLikeCard key={p.id} product={p} />
+              ))}
+            </div>
+          </FadeIn>
         </section>
       )}
     </div>
