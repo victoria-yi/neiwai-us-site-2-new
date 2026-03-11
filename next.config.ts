@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
      ],
     // Allow image optimization from CDNs that may resolve to private IPs in dev
     dangerouslyAllowSVG: false,
-    unoptimized: process.env.NODE_ENV === 'development',
+    unoptimized: true,
   },
 };
 
