@@ -60,7 +60,7 @@ export default function TechnologyStory({ features, productName }: TechnologySto
                           transform: feature.imageScale ? `scale(${feature.imageScale})` : undefined,
                         }}
                         sizes="(max-width: 1024px) 100vw, 55vw"
-                        unoptimized={feature.image.startsWith('/images/')}
+                        unoptimized={feature.image.startsWith('https://res.cloudinary.com/dkjyblzzm/image/upload/images//')}
                       />
                     </div>
                   )}
